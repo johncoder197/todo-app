@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  app: 
+    image: todo-app
+    build:
+      context: ./
+      dockerfile: dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+      
+    ports:
+      - "5500:5500"
+    restart: unless-stopped
